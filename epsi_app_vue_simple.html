@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Commits example</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #main {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #d5dbdb7e;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #131313;
+            font-size: 64px;
+            font-family: 'Cookie', cursive;
+            font-weight: normal;
+            line-height: 1;
+            text-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li.active {
+            background-color: #dff0d8;
+            /* Highlight active items */
+        }
+
+        input {
+            width: 50px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+
+        .total {
+            margin-top: 20px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="main" v-cloak>
+
+        <h1>ToilettesFinder</h1>
+
+        <ul>
+
+
+            <li v-for="service in services" v-bind:class="{ 'active': service.qte > 0}">
+
+
+                {{service.name}}
+                <span><input type="number" min="0" size="4" v-model="service.qte">
+
+
+                    {{formattedCurrency(service.price)}}</span>
+                <span> </span>
+
+            </li>
+        </ul>
+
+        <div class="total">
+
+
+            Total: <span>{{formattedCurrency(total())}}</span>
+
+        </div>
+
+    </form>
+
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+        const apiURL = "/api/explore/v2.1/catalog/datasets/244400404_toilettes-publiques-nantes-metropole/records?limit=20";
+        Vue.createApp({
+            data() {
+                return {
+                    branches: ["main", "3.2", "v2-compat"],
+                    currentBranch: "main",
+                    commits: [],
+                    filteredCommits: [],
+                };
+            },
+
+            created: function () {
+                this.fetchDataPromise();
+            },
+
+            watch: {
+                currentBranch: "fetchDataPromise",
+            },
+            methods: {
+
+            },
+        })
+    </script>
+</body>
+
+</html>
