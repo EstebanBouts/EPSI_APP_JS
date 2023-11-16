@@ -1,11 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Commits example</title>
     <style>
+        /* Your CSS styles here */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
@@ -17,19 +18,15 @@
         #main {
             max-width: 600px;
             margin: 20px auto;
-            background-color: #d5dbdb7e;
+            background-color: #fff;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            color: #131313;
-            font-size: 64px;
-            font-family: 'Cookie', cursive;
-            font-weight: normal;
-            line-height: 1;
-            text-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
+            color: #333;
+            text-align: center;
         }
 
         ul {
@@ -62,6 +59,8 @@
             margin-top: 20px;
             text-align: right;
         }
+
+        /* Add more styles as needed */
     </style>
 </head>
 
@@ -71,30 +70,22 @@
         <h1>ToilettesFinder</h1>
 
         <ul>
-
-
             <li v-for="service in services" v-bind:class="{ 'active': service.qte > 0}">
 
-
-                {{service.name}}
-                <span><input type="number" min="0" size="4" v-model="service.qte">
-
-
-                    {{formattedCurrency(service.price)}}</span>
+                <iframe
+                    src="https://data.nantesmetropole.fr/explore/embed/dataset/244400404_toilettes-publiques-nantes-metropole/analyze/?disjunctive.pole&disjunctive.commune&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJzcGlkZXJ3ZWIiLCJmdW5jIjoiQ09VTlQiLCJ5QXhpcyI6Imxvbmdfd2dzODQiLCJzY2llbnRpZmljRGlzcGxheSI6dHJ1ZSwiY29sb3IiOiIjRjE4QzAwIn1dLCJ4QXhpcyI6InBvbGUiLCJtYXhwb2ludHMiOm51bGwsInNvcnQiOiIiLCJjb25maWciOnsiZGF0YXNldCI6IjI0NDQwMDQwNF90b2lsZXR0ZXMtcHVibGlxdWVzLW5hbnRlcy1tZXRyb3BvbGUiLCJvcHRpb25zIjp7ImRpc2p1bmN0aXZlLnBvbGUiOnRydWUsImRpc2p1bmN0aXZlLmNvbW11bmUiOnRydWV9fX1dLCJ0aW1lc2NhbGUiOiIiLCJkaXNwbGF5TGVnZW5kIjp0cnVlLCJhbGlnbk1vbnRoIjp0cnVlfQ%3D%3D&static=false&datasetcard=false"
+                    width="400" height="300" frameborder="0"></iframe>
+                <span><input type="number" min="0" size="4" v-model="service.qte"></span>
                 <span> </span>
-
             </li>
         </ul>
 
         <div class="total">
-
-
-            Total: <span>{{formattedCurrency(total())}}</span>
-
         </div>
 
     </form>
 
+    <!-- Your iframe here -->
 
     <script src="https://unpkg.com/vue@3"></script>
     <script>
