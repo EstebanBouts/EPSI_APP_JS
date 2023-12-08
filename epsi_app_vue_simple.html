@@ -60,6 +60,13 @@
             text-align: right;
         }
 
+        input.text-input {
+            width: 200px;
+            /* Ajustez la largeur selon vos besoins */
+            padding: 8px;
+            /* Ajustez la marge intérieure selon vos besoins */
+        }
+
         /* Add more styles as needed */
     </style>
 </head>
@@ -75,7 +82,9 @@
                 <iframe
                     src="https://data.nantesmetropole.fr/explore/embed/dataset/244400404_toilettes-publiques-nantes-metropole/analyze/?disjunctive.pole&disjunctive.commune&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJzcGlkZXJ3ZWIiLCJmdW5jIjoiQ09VTlQiLCJ5QXhpcyI6Imxvbmdfd2dzODQiLCJzY2llbnRpZmljRGlzcGxheSI6dHJ1ZSwiY29sb3IiOiIjRjE4QzAwIn1dLCJ4QXhpcyI6InBvbGUiLCJtYXhwb2ludHMiOm51bGwsInNvcnQiOiIiLCJjb25maWciOnsiZGF0YXNldCI6IjI0NDQwMDQwNF90b2lsZXR0ZXMtcHVibGlxdWVzLW5hbnRlcy1tZXRyb3BvbGUiLCJvcHRpb25zIjp7ImRpc2p1bmN0aXZlLnBvbGUiOnRydWUsImRpc2p1bmN0aXZlLmNvbW11bmUiOnRydWV9fX1dLCJ0aW1lc2NhbGUiOiIiLCJkaXNwbGF5TGVnZW5kIjp0cnVlLCJhbGlnbk1vbnRoIjp0cnVlfQ%3D%3D&static=false&datasetcard=false"
                     width="400" height="300" frameborder="0"></iframe>
-                <span><input type="number" min="0" size="4" v-model="service.qte"></span>
+                <span><input type="text" v-model="service.location" placeholder="Entrez un lieu"
+                        style="width: 100px;"></span>
+                <button @click="voirDetails(service)">Voir les détails du lieu</button>
                 <span> </span>
             </li>
         </ul>
